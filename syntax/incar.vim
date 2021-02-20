@@ -1,0 +1,61 @@
+if exists("b:current_syntax")
+  finish
+endif
+let b:current_syntax = "incar"
+
+" source
+"http://cms.mpi.univie.ac.at/wiki/index.php/Category:INCAR
+syntax keyword incarKeyword
+ \ ADDGRID AEXX AGGAC AGGAX ALDAC ALGO AMIN AMIX AMIX_MAG ANDERSEN_PROB APACO
+ \ BMIX BMIX_MAG CMBJ CMBJA CMBJB CSHIFT DEPER DIPOL DQ EBREAK EDIFF EDIFFG
+ \ EFIELD EFIELD_PEAD EMAX EMIN ENAUG ENCUT EPSILON EVENONLY FERDO FERWE GGA
+ \ HFSCREEN HILLS_BIN HILLS_H HILLS_W I_CONSTRAINED M IALGO IBRION ICHARG
+ \ ICHIBARE IDIPOL IMAGES IMIX INCREM INIMIX INIWAV IPEAD ISIF ISMEAR ISPIN
+ \ ISTART ISYM KBLOCK KPAR LAMBDA LANGEVIN_GAMMA LANGEVIN_GAMMA L LASPH LBLUEOUT
+ \ LCALCEPS LCALCPOL LCHARG LCHIMAG LDAU LDAUJ LDAUL LDAUPRINT LDAUTYPE LDAUU
+ \ LDIPOL LEFG LELF LEPSILON LHFCALC LHYPERFINE LKPROJ LMAXFOCK LMAXFOCKAE
+ \ LMAXMIX LMAXPAW LMAXTAU LMIXTAU LMONO LNABLA LNMR_SYM RED LNONCOLLINEAR
+ \ LOPTICS LORBIT LPEAD LPLANE LREAL LRPA LSCALAPACK LSCALU LSORBIT LSPECTRAL
+ \ LTHOMAS LVTOT LWANNIER90 LWANNIER90_RUN LWAVE LWRITE_MMN AMN M_CONSTR MAGMOM
+ \ MAXMIX MDALGO METAGGA MIXPRE NBANDS NBLOCK NCORE NDAV NEDOS NELECT NELM
+ \ NELMIN NFREE NGX NGXF NGY NGYF NGYROMAG NGZ NGZF NKRED NKREDX NKREDY NKREDZ
+ \ NLSPLINE NOMEGA NOMEGAR NPACO NPAR NSIM NSUBSYS NSW ODDONLY OMEGAMAX OMEGATL
+ \ PFLAT PLEVEL PMASS POTIM PREC PRECFOCK PROUTINE PSUBSYS PTHRESHOLD QUAD_EFG
+ \ RANDOM_SEED ROPT RWIGS SAXIS SHAKEMAXITER SHAKETOL SIGMA SMASS SPRING SYMPREC
+ \ TEBEG TEEND TIME TSUBSYS VALUE_MAX VALUE_MIN WC WEIMIN LDMATRIX LORBITALREAL
+ \ LNONCOLLINEAR LSORBIT LPARD LSEPB IBAND NELMDL ENCUTGW FTODDUMP LCORR LDIAG
+ \ GGA_COMPAT
+
+
+" Define the highlighting of incarKeyword as general Keyword
+highlight link incarKeyword Keyword
+
+
+
+"""""""""""""""""""""""""
+"  SYNTAX FOR COMMENTS  "
+"""""""""""""""""""""""""
+" the \v key means vim's very magic regex 
+syntax match incarComment "\v#.*$"
+syntax match incarComment "\v!.*$"
+highlight link incarComment Comment
+
+
+"""""""""""""""
+"  OPERATORS  "
+"""""""""""""""
+"In the INCAR file to assing values '=' it is used
+syntax match incarOperator "\v\="
+highlight link incarOperator Operator
+
+"""""""""""""""
+"  CONSTANTS  "
+"""""""""""""""
+syntax keyword incarConstant Eigenval
+syntax keyword incarConstant C
+syntax keyword incarConstant NONE
+syntax match incarConstant ".TRUE."
+syntax match incarConstant ".FALSE."
+syntax match incarConstant "\v(([0-9]*\.)?[0-9]+E?-?[0-9]*\s?)*$"
+
+highlight link incarConstant Constant

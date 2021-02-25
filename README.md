@@ -3,9 +3,9 @@
 My DFT syntax highlight for vim.
 
 ## Installation 
-Copy files to your `~/.vim` folder or,
+Copy files to your `~/.vim` folder.
 
-make it a git repo:
+<!--make it a git repo:
 ```
 cd ~/.vim
 git init
@@ -14,4 +14,4 @@ git fetch
 git branch master origin/master
 git checkout master
 ```
-
+-->

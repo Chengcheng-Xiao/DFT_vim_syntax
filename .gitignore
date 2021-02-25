@@ -3,6 +3,6 @@
 
 # But not these files...
 !.gitignore
-!ftdetect/ 
-!syntax/
+!ftdetect/** 
+!syntax/**
 !README.md
